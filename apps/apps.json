@@ -1,0 +1,44 @@
+{
+    "apps": [
+      {
+        "id": "semodan",
+        "name": "세상의 모든 단어들 - 세모단",
+        "description": "세상의 모든 단어를 내 손안에! 나만의 맞춤형 다국어 단어장, '세모단'",
+        "icon": "icons/SemoDan.png",
+        "playStore": "https://play.google.com/store/apps/details?id=dev.semodev.semodan",
+        "appStore": null
+      },
+      {
+        "id": "semolotto",
+        "name": "세상의 모든 로또 - 세모로",
+        "description": "이제 더 똑똑하게! 스마트 분석 기능으로 실제 당첨 패턴 기반의 정교한 로또 번호 추천",
+        "icon": "icons/SeMoLotto.png",
+        "playStore": "https://play.google.com/store/apps/details?id=com.semodevlabs.lotto",
+        "appStore": null
+      },
+      {
+        "id": "mystic_gems",
+        "name": "세상의 모든 운세 - 보석",
+        "description": "매일 아침, 탄생석의 신비로운 힘으로 하루를 시작하세요! 일일 탄생석 카드: 매일 다른 보석이 전하는 특별한 운세",
+        "icon": "icons/mystic_gem.png",
+        "playStore": "https://play.google.com/store/apps/details?id=com.semodevlabs.mystic_gems",
+        "appStore": null
+      },
+      {
+        "id": "mystic_tarot",
+        "name": "세상의 모든 운세 - 타로",
+        "description": "매일 새로운 메시지와 함께, 오늘의 운세를 간단하게 확인하거나 깊이 있는 리딩을 통해 삶의 방향을 찾아보세요.",
+        "icon": "icons/mystic_tarot.png",
+        "playStore": "https://play.google.com/store/apps/details?id=com.semodevlabs.mystic_tarot",
+        "appStore": null
+      },
+      {
+        "id": "semobt",
+        "name": "세상의 모든 블루투스 - 세모블",
+        "description": "세상의 모든 블루투스 디바이스(BLE, BT Classic) 연결 및 시리얼 데이터 송수신을 위한 강력하고 직관적인 모바일 터미널 도구입니다.",
+        "icon": "icons/SeMoBT.png",
+        "playStore": "https://play.google.com/store/apps/details?id=com.semodevlabs.semobt",
+        "appStore": null
+      }
+    ]
+  }
