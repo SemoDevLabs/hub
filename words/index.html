@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단어 학습 파일</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .download-all-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-all-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .download-all-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-download-all {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-download-all:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .language-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .language-header h2 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .language-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .language-navigator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-language-all {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-language-all:hover {
+            background: #5568d3;
+        }
+
+        .download-status {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-align: center;
+            min-width: 300px;
+        }
+
+        .download-status-text {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .btn-cancel {
+            padding: 10px 25px;
+            background: #e53e3e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-cancel:hover {
+            background: #c53030;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .topic-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .topic-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .nav-btn {
+            background: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #d0d0d0;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .file-number {
+            font-size: 1rem;
+            color: #666;
+            min-width: 80px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .btn-download {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background: #5568d3;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-all-btns {
+                flex-direction: column;
+            }
+
+            .btn-download-all {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>단어 학습 파일</h1>
+            <p>언어별 주제별 단어 학습용 엑셀 파일을 다운로드하세요</p>
+        </header>
+
+        <div class="download-all-section">
+            <h2>전체 다운로드</h2>
+            <div class="download-all-btns">
+                <button class="btn-download-all" onclick="downloadAll()">
+                    📦 모든 파일 다운로드
+                </button>
+            </div>
+        </div>
+
+        <div id="languageSections"></div>
+    </div>
+
+    <script>
+        const languages = [
+            { code: 'en', name: '영어 (English)', flag: '🇺🇸' },
+            { code: 'jp', name: '일본어 (日本語)', flag: '🇯🇵' },
+            { code: 'es', name: '스페인어 (Español)', flag: '🇪🇸' }
+        ];
+
+        const topics = [
+            { id: 'uncategorized', name: '미분류' },
+            { id: 'travel', name: '여행' },
+            { id: 'business', name: '비즈니스' },
+            { id: 'food', name: '음식' },
+            { id: 'tech', name: '기술' },
+            { id: 'daily', name: '일상생활' },
+            { id: 'transportation', name: '교통' },
+            { id: 'shopping', name: '쇼핑' },
+            { id: 'emotion', name: '감정' },
+            { id: 'health', name: '건강' }
+        ];
+
+        // 언어별 현재 파일 번호 추적
+        const currentLanguageFileNumbers = {
+            'en': 1,
+            'jp': 1,
+            'es': 1
+        };
+
+        // 언어별 최대 파일 수 (현재는 모두 1, 나중에 업데이트 가능)
+        const maxLanguageFileNumbers = {
+            'en': 1,
+            'jp': 1,
+            'es': 1
+        };
+
+        // 다운로드 취소를 위한 플래그
+        let downloadCancelled = false;
+
+        function getFileName(langCode, topicId, fileNum) {
+            const numStr = String(fileNum).padStart(3, '0');
+            return `${topicId}_${langCode}_${numStr}.xlsx`;
+        }
+
+        function getFilePath(langCode, topicId, fileNum) {
+            return `${langCode}/${getFileName(langCode, topicId, fileNum)}`;
+        }
+
+        function downloadFile(langCode, topicId, fileNum) {
+            if (downloadCancelled) return;
+            
+            const filePath = getFilePath(langCode, topicId, fileNum);
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = getFileName(langCode, topicId, fileNum);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function showDownloadStatus(current, total) {
+            let statusDiv = document.getElementById('downloadStatus');
+            if (!statusDiv) {
+                const overlay = document.createElement('div');
+                overlay.className = 'overlay';
+                overlay.id = 'downloadOverlay';
+                document.body.appendChild(overlay);
+
+                statusDiv = document.createElement('div');
+                statusDiv.className = 'download-status';
+                statusDiv.id = 'downloadStatus';
+                document.body.appendChild(statusDiv);
+            }
+
+            statusDiv.innerHTML = `
+                <div class="download-status-text">
+                    다운로드 중... (${current}/${total})
+                </div>
+                <button class="btn-cancel" onclick="cancelDownload()">취소</button>
+            `;
+        }
+
+        function hideDownloadStatus() {
+            const statusDiv = document.getElementById('downloadStatus');
+            const overlay = document.getElementById('downloadOverlay');
+            if (statusDiv) statusDiv.remove();
+            if (overlay) overlay.remove();
+        }
+
+        function cancelDownload() {
+            downloadCancelled = true;
+            hideDownloadStatus();
+            setTimeout(() => {
+                downloadCancelled = false;
+            }, 500);
+        }
+
+        async function downloadLanguageAll(langCode) {
+            const fileNum = currentLanguageFileNumbers[langCode];
+            const totalFiles = topics.length;
+            downloadCancelled = false;
+
+            for (let i = 0; i < topics.length; i++) {
+                if (downloadCancelled) {
+                    hideDownloadStatus();
+                    return;
+                }
+
+                showDownloadStatus(i + 1, totalFiles);
+                downloadFile(langCode, topics[i].id, fileNum);
+                await new Promise(resolve => setTimeout(resolve, 200));
+            }
+
+            hideDownloadStatus();
+        }
+
+        async function downloadAll() {
+            const totalFiles = languages.length * topics.length;
+            let currentFile = 0;
+            downloadCancelled = false;
+
+            for (const lang of languages) {
+                if (downloadCancelled) {
+                    hideDownloadStatus();
+                    return;
+                }
+
+                const fileNum = currentLanguageFileNumbers[lang.code];
+                
+                for (const topic of topics) {
+                    if (downloadCancelled) {
+                        hideDownloadStatus();
+                        return;
+                    }
+
+                    currentFile++;
+                    showDownloadStatus(currentFile, totalFiles);
+                    downloadFile(lang.code, topic.id, fileNum);
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                }
+            }
+
+            hideDownloadStatus();
+        }
+
+        function changeLanguageFileNumber(langCode, direction) {
+            const current = currentLanguageFileNumbers[langCode];
+            const max = maxLanguageFileNumbers[langCode];
+            
+            let newNum = current + direction;
+            if (newNum < 1) newNum = 1;
+            if (newNum > max) newNum = max;
+            
+            currentLanguageFileNumbers[langCode] = newNum;
+            updateLanguageNavigator(langCode);
+            updateAllTopicCards(langCode);
+        }
+
+        function updateLanguageNavigator(langCode) {
+            const current = currentLanguageFileNumbers[langCode];
+            const max = maxLanguageFileNumbers[langCode];
+            
+            const numberDisplay = document.getElementById(`langFileNum_${langCode}`);
+            const prevBtn = document.getElementById(`langPrevBtn_${langCode}`);
+            const nextBtn = document.getElementById(`langNextBtn_${langCode}`);
+            
+            if (numberDisplay) {
+                numberDisplay.textContent = `${String(current).padStart(3, '0')} / ${String(max).padStart(3, '0')}`;
+            }
+            if (prevBtn) prevBtn.disabled = current <= 1;
+            if (nextBtn) nextBtn.disabled = current >= max;
+        }
+
+        function updateAllTopicCards(langCode) {
+            const fileNum = currentLanguageFileNumbers[langCode];
+            topics.forEach(topic => {
+                const btn = document.getElementById(`downloadBtn_${langCode}_${topic.id}`);
+                if (btn) {
+                    btn.onclick = () => downloadFile(langCode, topic.id, fileNum);
+                }
+            });
+        }
+
+        function renderLanguageSections() {
+            const container = document.getElementById('languageSections');
+            
+            languages.forEach(lang => {
+                const section = document.createElement('div');
+                section.className = 'language-section';
+                
+                const current = currentLanguageFileNumbers[lang.code];
+                const max = maxLanguageFileNumbers[lang.code];
+                
+                const header = document.createElement('div');
+                header.className = 'language-header';
+                header.innerHTML = `
+                    <h2>${lang.flag} ${lang.name}</h2>
+                    <div class="language-controls">
+                        <div class="language-navigator">
+                            <button class="nav-btn" id="langPrevBtn_${lang.code}" 
+                                    onclick="changeLanguageFileNumber('${lang.code}', -1)"
+                                    ${current <= 1 ? 'disabled' : ''}>
+                                ◀
+                            </button>
+                            <div class="file-number" id="langFileNum_${lang.code}">
+                                ${String(current).padStart(3, '0')} / ${String(max).padStart(3, '0')}
+                            </div>
+                            <button class="nav-btn" id="langNextBtn_${lang.code}" 
+                                    onclick="changeLanguageFileNumber('${lang.code}', 1)"
+                                    ${current >= max ? 'disabled' : ''}>
+                                ▶
+                            </button>
+                        </div>
+                        <button class="btn-language-all" onclick="downloadLanguageAll('${lang.code}')">
+                            언어 전체 다운로드
+                        </button>
+                    </div>
+                `;
+                
+                const grid = document.createElement('div');
+                grid.className = 'topics-grid';
+                
+                topics.forEach(topic => {
+                    const card = document.createElement('div');
+                    card.className = 'topic-card';
+                    card.innerHTML = `
+                        <div class="topic-header">
+                            <div class="topic-title">${topic.name}</div>
+                        </div>
+                        <button class="btn-download" 
+                                id="downloadBtn_${lang.code}_${topic.id}"
+                                onclick="downloadFile('${lang.code}', '${topic.id}', ${current})">
+                            파일 다운로드
+                        </button>
+                    `;
+                    
+                    grid.appendChild(card);
+                });
+                
+                section.appendChild(header);
+                section.appendChild(grid);
+                container.appendChild(section);
+            });
+        }
+
+        // 페이지 로드 시 렌더링
+        renderLanguageSections();
+    </script>
+</body>
+</html>
