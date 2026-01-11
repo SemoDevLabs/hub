@@ -1,5 +1,18 @@
 [
   {
+    "drawNumber": 1206,
+    "drawDate": "2026.01.10",
+    "winningNumbers": [
+      1,
+      3,
+      17,
+      26,
+      27,
+      42
+    ],
+    "bonusNumber": 23
+  },
+  {
     "drawNumber": 1205,
     "drawDate": "2026.01.03",
     "winningNumbers": [
