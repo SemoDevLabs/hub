@@ -791,6 +791,22 @@
         </div>
         <div class="projects-grid">
             <div class="project-card">
+                <div class="project-date">2026.02</div>
+                <h3 class="project-title">세모플레이어 (SeMoPlayer)</h3>
+                <a href="https://play.google.com/store/apps/details?id=com.semodevlabs.semoplayer" class="project-link" target="_blank">Google Play →</a>
+                <p class="project-description">
+                    Android 네이티브 음악 플레이어. 광고 없는 순수한 음악 감상 경험을 제공하는 무료 앱.
+                </p>
+                <ul class="project-features">
+                    <li>4개 탭 기반 체계적 음악 관리 (곡/앨범/아티스트/재생목록)</li>
+                    <li>Media3(ExoPlayer) 기반 고품질 재생 및 백그라운드 지원</li>
+                    <li>Jetpack Compose를 활용한 모던 UI 구현</li>
+                    <li>MVVM + Clean Architecture 설계</li>
+                    <li>Kotlin Coroutines + Flow 기반 비동기 처리</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
                 <div class="project-date">2025.12</div>
                 <h3 class="project-title">세상의 모든 블루투스 (SeMoBT)</h3>
                 <a href="https://play.google.com/store/apps/details?id=com.semodevlabs.semobt" class="project-link" target="_blank">Google Play →</a>
@@ -876,6 +892,7 @@
                     <span class="skill-tag">Android</span>
                     <span class="skill-tag">iOS</span>
                     <span class="skill-tag">Cross-Platform</span>
+                    <span class="skill-tag">Jetpack Compose</span>
                     <span class="skill-tag">Riverpod</span>
                     <span class="skill-tag">Provider</span>
                     <span class="skill-tag">Clean Architecture</span>
@@ -901,6 +918,7 @@
                 <div class="skill-tags">
                     <span class="skill-tag">Git</span>
                     <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">Media3 (ExoPlayer)</span>
                     <span class="skill-tag">AdMob</span>
                     <span class="skill-tag">Play Console</span>
                     <span class="skill-tag">Bluetooth (BLE/Classic)</span>
@@ -948,10 +966,10 @@
 
         <!-- Footer -->
         <footer>
-            <p>© <span id="year"></span> 백경순. All rights reserved.</p>
+            <p>© <span id="year"></span> semodevlabs. All rights reserved.</p>
         </footer>
     </div>
-
+    
     <script>
         // Auto-update year
         document.getElementById('year').textContent = new Date().getFullYear();
