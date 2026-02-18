@@ -39,6 +39,14 @@
         "icon": "icons/SeMoBT.png",
         "playStore": "https://play.google.com/store/apps/details?id=com.semodevlabs.semobt",
         "appStore": null
+      },
+      {
+        "id": "semoplayer",
+        "name": "세상의 모든 플레이어 - 세모플",
+        "description": "광고 없이 깔끔하게! 4개 탭으로 체계적인 음악 관리, 나만의 재생목록으로 즐기는 심플하고 세련된 음악 플레이어",
+        "icon": "icons/SeMoPlayer.png",
+        "playStore": "https://play.google.com/store/apps/details?id=com.semodevlabs.semoplayer",
+        "appStore": null
       }
     ]
   }
