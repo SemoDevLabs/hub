@@ -3,6 +3,19 @@
     "drawNumber": 1211,
     "drawDate": "2026.02.14",
     "winningNumbers": [
+      5,
+      8,
+      25,
+      31,
+      41,
+      44
+    ],
+    "bonusNumber": 45
+  },
+  {
+    "drawNumber": 1211,
+    "drawDate": "2026.02.14",
+    "winningNumbers": [
       23,
       26,
       27,
