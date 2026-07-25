@@ -1,5 +1,18 @@
 [
   {
+    "drawNumber": 1234,
+    "drawDate": "2026.07.25",
+    "winningNumbers": [
+      1,
+      15,
+      19,
+      31,
+      35,
+      43
+    ],
+    "bonusNumber": 27
+  },
+  {
     "drawNumber": 1233,
     "drawDate": "2026.07.18",
     "winningNumbers": [
