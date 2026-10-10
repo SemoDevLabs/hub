@@ -1,5 +1,18 @@
 [
   {
+    "drawNumber": 1245,
+    "drawDate": "2026.10.10",
+    "winningNumbers": [
+      4,
+      5,
+      25,
+      28,
+      32,
+      42
+    ],
+    "bonusNumber": 12
+  },
+  {
     "drawNumber": 1244,
     "drawDate": "2026.10.03",
     "winningNumbers": [
