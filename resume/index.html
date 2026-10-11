@@ -1,978 +1,1097 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="백경순 - Flutter 전문 크로스플랫폼 개발자. 15년 경력의 모바일 앱 개발자로 Android, iOS, Web 개발 경험 보유.">
-    <meta name="keywords" content="Flutter 개발자, 크로스플랫폼 개발, 모바일 앱 개발, Android, iOS, React, 백경순">
-    <meta name="author" content="백경순">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="백경순 | Cross-platform Developer">
-    <meta property="og:description" content="Flutter 기반 모바일 애플리케이션 개발 및 출시 경험을 보유한 15년 경력 개발자">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://semodevlabs.github.io/hub/resume/">
-    
-    <title>백경순 | Cross-platform Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>백경순 | Device & IoT Software Engineer</title>
+    <meta name="description"
+        content="임베디드 단말부터 Android, ROS, IoT 센서 플랫폼, Flutter 기반 Windows/Android 산업용 소프트웨어까지 경험한 Device & IoT Software Engineer 백경순의 이력 및 프로젝트 포트폴리오입니다." />
+    <meta name="keywords"
+        content="Device Software Engineer, IoT Software Engineer, Android, Flutter, Kotlin, BLE, UART, NFC, ROS, Sensor Integration, Physical AI, Robotics, Smart Factory, 백경순, SemoDevLabs" />
+    <meta name="author" content="백경순" />
+    <meta name="theme-color" content="#5f4b8b" />
+    <link rel="canonical" href="https://semodevlabs.github.io/hub/resume/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="백경순 | Device & IoT Software Engineer" />
+    <meta property="og:description"
+        content="Device · Sensor · Application · Data를 연결해 온 16년 이상의 Software Engineer. Android, Flutter, IoT, ROS, Edge Application 경험." />
+    <meta property="og:url" content="https://semodevlabs.github.io/hub/resume/" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --accent: #5f4b8b;
+            --accent2: #7966a5;
+            --soft: #f0ecf7;
+            --softer: #f8f6fb;
+            --text: #232326;
+            --muted: #68666d;
+            --line: #e4e0ea;
+            --bg: #f7f7f9;
+            --card: #fff;
+            --max: 1120px;
+            --shadow: 0 8px 30px rgba(48, 38, 67, .06)
         }
 
-        :root {
-            --bg-dark: #0a0e27;
-            --bg-card: #1a1f3a;
-            --bg-card-hover: #222947;
-            --accent: #06b6d4;
-            --accent-dark: #0891b2;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-tertiary: #64748b;
-            --border: #334155;
-            --shadow: rgba(6, 182, 212, 0.1);
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
         }
 
         body {
-            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            margin: 0;
+            color: var(--text);
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+            line-height: 1.65;
+            word-break: keep-all;
+            overflow-wrap: break-word
         }
 
-        /* Background Animation */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+        a {
+            color: var(--accent);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        a:hover {
+            color: var(--accent2)
+        }
+
+        .page {
+            width: min(calc(100% - 32px), var(--max));
+            margin: 32px auto 64px
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(95, 75, 139, .98), rgba(70, 57, 104, .98));
+            color: #fff;
+            border-radius: 24px;
+            padding: 44px 46px 38px;
+            box-shadow: var(--shadow);
             position: relative;
-            z-index: 1;
+            overflow: hidden
         }
 
-        /* Header */
-        header {
-            padding: 4rem 0 2rem;
-            text-align: center;
-            animation: fadeInDown 1s ease;
+        .hero:after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            right: -80px;
+            top: -110px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 50%;
+            box-shadow: 0 0 0 44px rgba(255, 255, 255, .035), 0 0 0 88px rgba(255, 255, 255, .025);
+            pointer-events: none
+        }
+
+        .eyebrow {
+            margin: 0 0 6px;
+            font-size: .78rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            opacity: .78;
+            font-weight: 700
         }
 
         h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
+            margin: 0;
+            font-size: clamp(2.15rem, 5vw, 3.6rem);
+            line-height: 1.1;
+            letter-spacing: -.045em
+        }
+
+        .title {
+            margin: 10px 0 0;
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            font-weight: 650
         }
 
         .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            font-weight: 300;
-            margin-bottom: 2rem;
-            font-family: 'Outfit', sans-serif;
+            margin: 6px 0 0;
+            color: rgba(255, 255, 255, .80);
+            font-size: .96rem
         }
 
-        .contact-info {
+        .hero-actions {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 1.5rem;
+            gap: 10px;
+            margin-top: 24px
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            text-decoration: none;
-        }
-
-        .contact-item:hover {
-            color: var(--accent);
-        }
-
-        .contact-item svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-link {
+        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-secondary);
+            gap: 6px;
+            min-height: 40px;
+            padding: 9px 14px;
+            border-radius: 999px;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            font-size: .88rem;
+            border: 1px solid rgba(255, 255, 255, .30);
+            color: #fff;
+            background: rgba(255, 255, 255, .08)
         }
 
-        .social-link:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--accent);
+        .btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, .15)
+        }
+
+        .btn.primary {
             color: var(--accent);
-            transform: translateY(-2px);
+            background: #fff;
+            border-color: #fff
         }
 
-        .social-link svg {
-            width: 20px;
-            height: 20px;
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 28px
         }
 
-        /* About Section */
-        .about {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 3rem 0;
-            box-shadow: 0 4px 20px var(--shadow);
-            animation: fadeIn 1s ease 0.2s both;
+        .fact {
+            border-top: 1px solid rgba(255, 255, 255, .22);
+            padding-top: 12px
         }
 
-        .about p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
+        .fact strong {
+            display: block;
+            font-size: 1.05rem
         }
 
-        /* Section Titles */
-        .section-header {
+        .fact span {
+            color: rgba(255, 255, 255, .72);
+            font-size: .78rem
+        }
+
+        .nav {
+            position: sticky;
+            top: 12px;
+            z-index: 10;
+            margin: 14px 0 24px;
+            padding: 8px;
+            background: rgba(255, 255, 255, .92);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            box-shadow: 0 6px 24px rgba(30, 26, 38, .05);
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            white-space: nowrap
+        }
+
+        .nav-inner {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 4rem 0 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2px;
+            min-width: max-content
+        }
+
+        .nav a {
+            padding: 7px 11px;
+            border-radius: 999px;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: .80rem;
+            font-weight: 700
+        }
+
+        .nav a:hover {
+            color: var(--accent);
+            background: var(--soft)
+        }
+
+        section {
+            scroll-margin-top: 82px;
+            margin: 0 0 26px
+        }
+
+        .section-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 28px 30px;
+            box-shadow: var(--shadow)
         }
 
         .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            position: relative;
-            display: inline-block;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin: 0 0 18px;
+            font-size: 1.35rem;
+            color: var(--accent);
+            letter-spacing: -.025em
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            border-radius: 2px;
+        .section-title:after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: var(--line)
         }
 
-        .view-all-link {
+        .summary p {
+            margin: 0 0 11px
+        }
+
+        .summary p:last-child {
+            margin-bottom: 0
+        }
+
+        .competency-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px
+        }
+
+        .competency {
+            padding: 16px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: var(--softer)
+        }
+
+        .competency strong {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 4px
+        }
+
+        .competency p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .91rem
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            border-top: 1px solid var(--line)
+        }
+
+        .skill-label,
+        .skill-value {
+            padding: 11px 8px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .skill-label {
+            color: var(--accent);
+            font-weight: 800;
+            padding-left: 0
+        }
+
+        .skill-value {
+            color: var(--muted);
+            padding-right: 0
+        }
+
+        .career-table-wrap {
+            overflow-x: auto
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .88rem
+        }
+
+        th {
+            text-align: left;
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 11px;
+            font-weight: 750
+        }
+
+        td {
+            padding: 10px 11px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top
+        }
+
+        tbody tr:nth-child(even) td {
+            background: #faf9fc
+        }
+
+        .experience-list,
+        .project-list {
+            display: grid;
+            gap: 18px
+        }
+
+        .experience,
+        .project {
+            border: 1px solid var(--line);
+            border-radius: 17px;
+            padding: 20px 21px 18px;
+            background: #fff
+        }
+
+        .experience-head,
+        .project-head {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: start;
+            gap: 12px 18px;
+            padding-bottom: 11px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 11px
+        }
+
+        .company,
+        .project-name {
+            margin: 0;
+            font-size: 1.08rem;
+            letter-spacing: -.02em
+        }
+
+        .role {
+            margin: 3px 0 0;
+            color: var(--muted);
+            font-size: .88rem
+        }
+
+        .period {
+            color: var(--accent);
+            font-weight: 800;
+            font-size: .86rem;
+            white-space: nowrap;
+            text-align: right
+        }
+
+        .focus-title {
+            margin: 0 0 7px;
+            color: var(--accent);
+            font-size: .90rem;
+            font-weight: 800
+        }
+
+        ul {
+            margin: 8px 0 0;
+            padding-left: 1.18rem
+        }
+
+        li {
+            margin: 3px 0
+        }
+
+        .tech {
+            margin: 12px 0 0;
+            padding-top: 10px;
+            border-top: 1px dashed var(--line);
+            color: var(--muted);
+            font-size: .82rem
+        }
+
+        .tech strong {
+            color: var(--accent);
+            margin-right: 6px
+        }
+
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px
+        }
+
+        .link-chip {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: var(--soft);
             color: var(--accent);
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: gap 0.3s ease;
+            font-size: .80rem;
+            font-weight: 800
         }
 
-        .view-all-link:hover {
-            gap: 0.75rem;
+        .link-chip:hover {
+            background: #e5dff2
         }
 
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent), transparent);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 2rem;
-            animation: fadeInLeft 0.6s ease both;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border: 3px solid var(--bg-dark);
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px var(--bg-card);
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .timeline-period {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .timeline-content ul {
-            list-style: none;
-            margin-top: 0.75rem;
-        }
-
-        .timeline-content li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .timeline-content li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            animation: fadeIn 0.6s ease both;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), #8b5cf6);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px var(--shadow);
-            border-color: var(--accent);
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-date {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .project-link {
-            color: var(--text-tertiary);
-            font-size: 0.85rem;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: var(--accent);
-        }
-
-        .project-description {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .project-features {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .project-features li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .project-features li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Skills */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-category {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            animation: fadeIn 0.6s ease both;
-        }
-
-        .skill-category h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.3);
-            border-radius: 6px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(6, 182, 212, 0.2);
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Certifications */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
+        .education-item,
         .cert-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            animation: fadeIn 0.6s ease both;
-            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 12px 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--line)
         }
 
-        .cert-item:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
+        .education-item:last-child,
+        .cert-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0
         }
 
-        .cert-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+        .edu-name,
+        .cert-name {
+            font-weight: 800
         }
 
-        .cert-org {
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+        .edu-detail {
+            color: var(--muted);
+            font-size: .90rem;
+            margin-top: 3px
         }
 
-        .cert-date {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 500;
+        .future-focus {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 10px 20px;
+            padding: 4px 0
         }
 
-        /* Footer */
+        .future-focus strong {
+            color: var(--accent)
+        }
+
         footer {
             text-align: center;
-            padding: 4rem 0 2rem;
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
+            color: var(--muted);
+            font-size: .78rem;
+            padding: 8px 0 28px
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
+        @media(max-width:780px) {
+            .page {
+                width: min(calc(100% - 20px), var(--max));
+                margin-top: 10px
             }
 
-            h1 {
-                font-size: 2.5rem;
+            .hero {
+                border-radius: 18px;
+                padding: 30px 22px
             }
 
-            .subtitle {
-                font-size: 1.2rem;
+            .quick-facts {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
             }
 
-            .section-title {
-                font-size: 1.5rem;
+            .section-card {
+                border-radius: 16px;
+                padding: 22px 18px
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .competency-grid {
+                grid-template-columns: 1fr
             }
 
-            .timeline {
-                padding-left: 1rem;
+            .skills {
+                grid-template-columns: 1fr
             }
 
-            .timeline-item {
-                padding-left: 1.5rem;
+            .skill-label {
+                padding-bottom: 1px;
+                border-bottom: 0
             }
 
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
+            .skill-value {
+                padding-top: 2px
             }
 
-            .social-links {
-                flex-direction: column;
+            .experience-head,
+            .project-head,
+            .education-item,
+            .cert-item,
+            .future-focus {
+                grid-template-columns: 1fr
             }
 
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .period {
+                text-align: left
             }
         }
 
-        /* Staggered animations */
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
-        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
-        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
-        .timeline-item:nth-child(8) { animation-delay: 0.8s; }
+        @media print {
+            body {
+                background: #fff;
+                font-size: 10.5pt
+            }
 
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
+            .page {
+                width: 100%;
+                margin: 0
+            }
+
+            .hero {
+                box-shadow: none;
+                border-radius: 0;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact
+            }
+
+            .nav,
+            .hero-actions {
+                display: none
+            }
+
+            .section-card {
+                box-shadow: none;
+                border: 0;
+                border-radius: 0;
+                padding: 18px 0
+            }
+
+            .experience,
+            .project {
+                break-inside: avoid
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
+    <main class="page">
+        <header class="hero">
+            <p class="eyebrow">Resume · Portfolio</p>
             <h1>백경순</h1>
-            <div class="subtitle">Cross-platform Developer (Web/App)</div>
-            <div class="contact-info">
-                <a href="mailto:eleutheria@naver.com" class="contact-item">
-                    <svg fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                    </svg>
-                    <span>eleutheria@naver.com</span>
-                </a>
-                <div class="contact-item">
-                    <svg fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>서울시 성북구 안암로</span>
-                </div>
+            <p class="title">Device &amp; IoT Software Engineer</p>
+            <p class="subtitle">Cross-platform · Sensor &amp; Device Integration · Edge Applications · Technical
+                Leadership</p>
+            <div class="hero-actions">
+                <a class="btn primary" href="mailto:eleutheria@naver.com">Email</a>
+                <a class="btn" href="https://www.linkedin.com/in/eleutheria80" target="_blank"
+                    rel="noopener">LinkedIn</a>
+                <a class="btn" href="https://github.com/SemoDevLabs" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn" href="https://semodevlabs.github.io/hub/apps/" target="_blank" rel="noopener">SemoDevLabs
+                    Apps</a>
+                <a class="btn" href="#projects">Personal Projects</a>
             </div>
-            <div class="social-links">
-                <a href="https://github.com/semodevlabs" class="social-link" target="_blank" rel="noopener" title="주요 프로젝트는 비공개 저장소로 관리됩니다">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/경순-백-532263361/" class="social-link" target="_blank" rel="noopener">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                </a>
+            <div class="quick-facts">
+                <div class="fact"><strong>16년+</strong><span>Software Development</span></div>
+                <div class="fact"><strong>Android · Windows</strong><span>Native &amp; Cross-platform</span></div>
+                <div class="fact"><strong>Device · Sensor</strong><span>BLE · UART · NFC · ROS</span></div>
+                <div class="fact"><strong>6 Apps</strong><span>Personal Google Play Releases</span></div>
             </div>
         </header>
 
-        <!-- About -->
-        <section class="about">
-            <p>
-                Flutter 기반 모바일 애플리케이션 개발 및 출시 경험을 보유한 개발자입니다.
-                15년 이상의 소프트웨어 개발 경력을 바탕으로, 최근 4년간 Flutter·Dart 중심의 앱 기획–개발–배포 전 과정을 단독 수행했습니다.
-                Android(Kotlin/Java) 및 iOS(Swift) 환경에서도 안정적인 서비스 구현 경험을 보유하고 있으며,
-                Clean Architecture 및 Riverpod 기반의 구조 설계, Firebase·AdMob 연동 등 상용 수준의 모바일 서비스 개발 역량을 갖추고 있습니다.
-            </p>
+        <nav class="nav" aria-label="페이지 내비게이션">
+            <div class="nav-inner">
+                <a href="#summary">Summary</a><a href="#competencies">Competencies</a><a href="#skills">Skills</a><a
+                    href="#career">Career</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a
+                    href="#education">Education</a><a href="#certifications">Certifications</a><a
+                    href="#direction">Career Focus</a>
+            </div>
+        </nav>
+
+        <section id="summary" class="section-card summary">
+            <h2 class="section-title">Professional Summary</h2>
+            <p>16년 이상의 소프트웨어 개발 경험을 바탕으로 임베디드 단말, Android Native, ROS 기반 드론 제어, IoT 센서 플랫폼, Flutter 기반 Windows/Android
+                산업용 소프트웨어까지 다양한 환경에서 시스템을 개발해 왔습니다.</p>
+            <p>C 기반 모바일·임베디드 단말 개발에서 출발해 Android 애플리케이션, BLE·UART·NFC 기반 디바이스 통신, 센서 데이터 수집, AWS 기반 데이터 처리 및 시각화,
+                Cross-platform Application으로 기술 영역을 확장했습니다.</p>
+            <p>국민대학교 융합연구센터에서는 IoT 센서 플랫폼과 스마트패션 연구 프로젝트의 개발 및 PL 업무를 수행했고, 현재 그린플로우에서는 NB-IoT 기반 원격자동검침 수도미터 및 원격검침단말의
+                생산·현장 점검·유지보수를 지원하는 Windows/Android 소프트웨어를 개발하고 있습니다.</p>
+            <p>생성형 AI와 LLM 기반 개발 도구를 기술 조사, 아키텍처 검토, 코드 구현·리팩토링, 디버깅 및 문서화에 활용하며, 최종 설계·코드 검토·테스트·배포는 직접 검증하는
+                AI-Augmented Software Development Workflow를 적용하고 있습니다.</p>
+            <p>Device, Sensor, Application, Data를 하나의 시스템으로 연결해 온 경험을 바탕으로 Physical AI, Robotics, Smart Factory 및
+                Intelligent Device Software 분야로 전문성을 확장하고자 합니다.</p>
         </section>
 
-        <!-- Experience -->
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">NTQ Korea / 차장</h3>
-                    <span class="timeline-period">2024.11 - 2025.06</span>
+        <section id="competencies" class="section-card">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="competency-grid">
+                <div class="competency"><strong>Device &amp; Sensor Integration</strong>
+                    <p>BLE, Bluetooth Classic/SPP, UART, NFC, ROS 기반 물리 디바이스·센서와 애플리케이션 간 통신 및 데이터 연동</p>
                 </div>
-                <div class="timeline-content">
+                <div class="competency"><strong>Cross-platform &amp; Native Software</strong>
+                    <p>Flutter/Dart 기반 Android·Windows와 Kotlin/Java 기반 Android Native 애플리케이션 개발·출시</p>
+                </div>
+                <div class="competency"><strong>IoT &amp; Data Systems</strong>
+                    <p>센서 데이터 수집에서 모바일 애플리케이션, AWS Lambda, Elasticsearch/Kibana 기반 검색·시각화까지 연결한 시스템 경험</p>
+                </div>
+                <div class="competency"><strong>Technical Leadership</strong>
+                    <p>연구과제·플랫폼 프로젝트 PL, BrSE, 해외 개발팀 및 다학제 연구진 간 요구사항·기술 커뮤니케이션</p>
+                </div>
+                <div class="competency"><strong>AI-Augmented Development</strong>
+                    <p>생성형 AI/LLM을 기술 조사·설계 검토·코드 구현·리팩토링·디버깅·문서화에 활용하고 결과를 직접 검증</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-card">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills">
+                <div class="skill-label">Core Languages</div>
+                <div class="skill-value">Dart · Kotlin · Java · C · Python</div>
+                <div class="skill-label">Application / Platform</div>
+                <div class="skill-value">Flutter · Android SDK · Jetpack Compose · Windows · Linux</div>
+                <div class="skill-label">Device / Communication</div>
+                <div class="skill-value">BLE · Bluetooth Classic/SPP · UART · NFC · ROS · Sensor Integration</div>
+                <div class="skill-label">Architecture / State</div>
+                <div class="skill-value">MVVM · Repository Pattern · Riverpod · StateFlow · Coroutines · GetX · Freezed
+                </div>
+                <div class="skill-label">Cloud / Data</div>
+                <div class="skill-value">AWS Lambda · Elasticsearch · Kibana · Firebase Auth · Firestore · Firebase
+                    Storage · FCM · MySQL · Room · Hive · SharedPreferences</div>
+                <div class="skill-label">Android / Media</div>
+                <div class="skill-value">Media3 · ExoPlayer · MediaSession · Foreground Service · MediaStore · DataStore
+                </div>
+                <div class="skill-label">Enterprise / Earlier</div>
+                <div class="skill-value">Spring Boot · Vue · JSP · PHP · JavaScript · React · Next.js · Swift/iOS · C++
+                </div>
+                <div class="skill-label">Development Workflow</div>
+                <div class="skill-value">Git · GitHub · Jira · Notion · Google Play Console · Generative AI /
+                    LLM-assisted Development</div>
+            </div>
+        </section>
+
+        <section id="career" class="section-card">
+            <h2 class="section-title">Career Summary</h2>
+            <div class="career-table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>기간</th>
+                            <th>회사</th>
+                            <th>직급 / 역할</th>
+                            <th>주요 경력</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026.06 ~ 현재</td>
+                            <td>그린플로우</td>
+                            <td>책임연구원</td>
+                            <td>원격검침 수도미터/단말 진단·유지보수 Windows/Android 소프트웨어</td>
+                        </tr>
+                        <tr>
+                            <td>2024.11 ~ 2025.06</td>
+                            <td>NTQ Korea</td>
+                            <td>차장 / BrSE·PL</td>
+                            <td>더한섬닷컴·EQL PG 이중화, ERP 요구사항·해외 개발팀 조율</td>
+                        </tr>
+                        <tr>
+                            <td>2018.07 ~ 2024.02</td>
+                            <td>국민대학교 산학협력단</td>
+                            <td>책임연구원 / PL</td>
+                            <td>IoT 센서 플랫폼·스마트패션 연구, AWS 데이터 파이프라인</td>
+                        </tr>
+                        <tr>
+                            <td>2017.08 ~ 2018.05</td>
+                            <td>자이언트드론</td>
+                            <td>선임연구원</td>
+                            <td>ROS 기반 드론 GCS 및 센서 통신·제어</td>
+                        </tr>
+                        <tr>
+                            <td>2016.03 ~ 2016.07</td>
+                            <td>이너아워</td>
+                            <td>과장</td>
+                            <td>O2O 명품 수선 서비스 수서니 Android/Web 연동</td>
+                        </tr>
+                        <tr>
+                            <td>2014.05 ~ 2015.05</td>
+                            <td>라다카</td>
+                            <td>과장 / PL</td>
+                            <td>T cloud Lounge, SK Myshop GolfZone, LG전자 Avatar Chat</td>
+                        </tr>
+                        <tr>
+                            <td>2012.02 ~ 2014.01</td>
+                            <td>그린클라우드</td>
+                            <td>과장</td>
+                            <td>SmartTV·Android 게임 개발/포팅 및 소규모 Web Backend</td>
+                        </tr>
+                        <tr>
+                            <td>2011.04 ~ 2012.01</td>
+                            <td>유비벨록스 모바일</td>
+                            <td>과장</td>
+                            <td>LG U+ 단말 내장 앱 및 성능 테스트 앱 개발·유지보수</td>
+                        </tr>
+                        <tr>
+                            <td>2009.10 ~ 2010.05</td>
+                            <td>NSA</td>
+                            <td>대리 / Sub PL</td>
+                            <td>삼성전자 U460 Settings &amp; Tools 내장 SW</td>
+                        </tr>
+                        <tr>
+                            <td>2005.10 ~ 2009.09</td>
+                            <td>리코시스 / 네오엠텔</td>
+                            <td>주임연구원</td>
+                            <td>C/WIPI/M3D 기반 게임·그래픽 엔진 및 다종 단말 포팅</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="experience" class="section-card">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-list">
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">㈜그린플로우</h3>
+                            <p class="role">연구소 · 책임연구원</p>
+                        </div>
+                        <div class="period">2026.06 ~ 현재</div>
+                    </div>
+                    <p class="focus-title">Industrial IoT Device Diagnostic &amp; Maintenance Software</p>
                     <ul>
-                        <li>더한섬닷컴·EQL 사이트 PG 이중화 프로젝트 수행</li>
-                        <li>ERP 신규 개발 프로젝트 설계 수행</li>
-                        <li>BrSE 및 PL 역할로 고객사–베트남 개발자 간 커뮤니케이션 총괄</li>
+                        <li>NB-IoT 기반 원격자동검침 수도미터 및 원격검침단말의 생산·현장 점검·유지보수를 지원하는 Windows/Android 애플리케이션 개발</li>
+                        <li>Flutter/Dart 기반 Windows·Android 멀티플랫폼 진단 및 유지보수 소프트웨어 개발</li>
+                        <li>BLE, UART, NFC 등 장비별 인터페이스를 이용한 수도미터 및 원격검침단말 연동</li>
+                        <li>RSSI, 배터리 상태, 검침 데이터 및 장비 설정 정보 조회·진단 기능 구현</li>
+                        <li>현장 점검 및 유지보수를 위한 Firmware Download 기능 개발 및 지원</li>
+                        <li>통신 데이터 Parsing 및 장비–애플리케이션 간 데이터 정합성 검증</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">국민대학교 융합연구센터 / 책임연구원</h3>
-                    <span class="timeline-period">2018.07 - 2024.02</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>Flutter · Dart · Windows · Android · BLE · UART · NFC ·
+                        Industrial IoT · Device Integration</p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">NTQ Korea</h3>
+                            <p class="role">DX Center 개발팀 · 차장 / BrSE·PL</p>
+                        </div>
+                        <div class="period">2024.11 ~ 2025.06</div>
+                    </div>
+                    <p class="focus-title">Enterprise System Integration &amp; Technical Coordination</p>
                     <ul>
-                        <li>IoT 센서 플랫폼 프로젝트 PL</li>
-                        <li>BT Classic, BLE 통신을 이용한 센서 데이터 모니터링 앱 개발</li>
-                        <li>OpenSourceDesign 프로젝트 PL</li>
-                        <li>Kotlin·Python 기반 데이터 수집·AWS Lambda 연동·ElasticSearch 시각화 구축</li>
+                        <li>더한섬닷컴·EQL PG 이중화 프로젝트에서 Bridge System Engineer(BrSE) 수행</li>
+                        <li>국내 고객사, PG사, 베트남 개발팀 사이의 기술 커뮤니케이션과 요구사항·이슈·일정 조율</li>
+                        <li>신규 ERP 구축 프로젝트 초기 PL 및 BrSE 역할 수행</li>
+                        <li>현업 담당자 인터뷰를 통한 요구사항 파악 및 요구사항 정의서 작성</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">자이언트드론 / 주임</h3>
-                    <span class="timeline-period">2017.08 - 2018.05</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>BrSE · PL · Requirement Analysis · Java · Spring Boot ·
+                        Vue · JSP · Global Technical Coordination</p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">국민대학교 산학협력단 융합연구센터</h3>
+                            <p class="role">융합연구센터 · 책임연구원 / PL</p>
+                        </div>
+                        <div class="period">2018.07 ~ 2024.02</div>
+                    </div>
+                    <p class="focus-title">IoT Sensor Platform &amp; Smart Fashion R&amp;D</p>
                     <ul>
-                        <li>ROS 기반 드론 GCS 프로그램 개발</li>
-                        <li>센서 데이터 통신 및 제어 기능 구현</li>
+                        <li>한국연구재단 선도연구센터(CRC) ‘모듈형 스마트 패션플랫폼’ 연구과제 참여 및 IoT 센서 플랫폼 개발</li>
+                        <li>상용 및 자체 개발 센서 데이터를 수집하는 Android 애플리케이션 개발</li>
+                        <li>BLE/BT 기반 센서 데이터 수집·모니터링 및 모바일에서 AWS로 전달·저장하는 시스템 구현</li>
+                        <li>Kotlin/Python 기반 데이터 수집·처리 모듈 및 AWS Lambda 처리 기능 구현</li>
+                        <li>Elasticsearch/Kibana 기반 연구 데이터 검색·시각화 환경 구축</li>
+                        <li>스마트 의류 및 Wearable Sensor 연동 연구, OpenSourceDesign 플랫폼 구축 PL 수행</li>
+                        <li>소프트웨어·전자·체육·디자인·신소재 연구진과 다학제 협업</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">라다카 / 주임</h3>
-                    <span class="timeline-period">2014.04 - 2015.05</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>Kotlin · Android · Python · BLE · AWS Lambda ·
+                        Elasticsearch · Kibana · IoT Sensor Platform · R&amp;D · PL</p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">자이언트드론</h3>
+                            <p class="role">부설연구소 · 선임연구원</p>
+                        </div>
+                        <div class="period">2017.08 ~ 2018.05</div>
+                    </div>
+                    <p class="focus-title">ROS-based Drone Ground Control System</p>
                     <ul>
-                        <li>T cloud Lounge 안드로이드 앱 개발</li>
-                        <li>SK Myshop GolfZone 유지 보수</li>
-                        <li>LG전자 아바타 채팅 데모 개발</li>
+                        <li>ROS 기반 Android GCS(Ground Control System) 개발</li>
+                        <li>드론 및 센서 데이터 수신·표시, 비행 제어 명령 송수신 기능 구현</li>
+                        <li>모바일 기반 비행 상태 모니터링 및 제어 UI 개발</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">그린클라우드 / 주임</h3>
-                    <span class="timeline-period">2012.02 - 2014.01</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>ROS · Android · Java · Sensor Communication · Device
+                        Control</p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">이너아워</h3>
+                            <p class="role">앱 개발팀 · 과장</p>
+                        </div>
+                        <div class="period">2016.03 ~ 2016.07</div>
+                    </div>
+                    <p class="focus-title">O2O 명품 수선 서비스 ‘수서니’</p>
                     <ul>
-                        <li>SmartTV용 게임 개발</li>
-                        <li>삼성앱스용 게임 포팅</li>
-                        <li>자체 엔진 기반 카드 배틀 게임 개발</li>
+                        <li>Java 기반 Android 애플리케이션 및 PHP 기반 Web 서비스 연동</li>
+                        <li>사진 촬영 등 Native 기능, GCM Push Notification, 회원가입·로그인 기능 구현</li>
+                        <li>Android Native Layer와 PHP Web Page 간 양방향 연동</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">EDN / 주임</h3>
-                    <span class="timeline-period">2011.04 - 2012.01</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>Java · Android · PHP · Linux · WebView · GCM</p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">㈜라다카</h3>
+                            <p class="role">앱 개발팀 · 과장 / PL</p>
+                        </div>
+                        <div class="period">2014.05 ~ 2015.05</div>
+                    </div>
+                    <p class="focus-title">Android Application Development</p>
                     <ul>
-                        <li>LG U+ 내장 앱 성능 테스트 앱 개발 및 유지보수</li>
+                        <li>SK Planet T cloud Lounge Android UI Framework 관리 및 로그인·라운지 생성 기능 개발</li>
+                        <li>SK Myshop GolfZone Android POS 애플리케이션 오류 수정 및 차기 버전 기능 개발</li>
+                        <li>LG전자 Avatar Chat 제안용 Demo 프로젝트 PL 및 Android 애플리케이션 개발</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">NSA / 주임</h3>
-                    <span class="timeline-period">2009.10 - 2010.05</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>Java · Android · Application Development · PL</p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">그린클라우드</h3>
+                            <p class="role">게임 개발팀 · 과장</p>
+                        </div>
+                        <div class="period">2012.02 ~ 2014.01</div>
+                    </div>
                     <ul>
-                        <li>삼성전자 미주향 단말 내장 SW 개발 (U460 - Settings & Tools)</li>
-                        <li>Space Platform 적용</li>
+                        <li>LG SmartTV 게임 개발 및 출시, 자체 엔진 기반 카드배틀 게임 개발</li>
+                        <li>Android 게임의 삼성 단말 기능 포팅 및 Tizen 기반 게임의 Android 포팅</li>
+                        <li>PHP/MySQL 기반 소규모 게임 Web Backend 개발</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">리코시스(네오엠텔) / 주임</h3>
-                    <span class="timeline-period">2005.10 - 2009.09</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>C · Java · Android · SmartTV · Windows · PHP · MySQL ·
+                        Porting</p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">유비벨록스 모바일</h3>
+                            <p class="role">앱 개발팀 · 과장</p>
+                        </div>
+                        <div class="period">2011.04 ~ 2012.01</div>
+                    </div>
                     <ul>
-                        <li>M3D 엔진 기반 3D 게임 개발 및 포팅</li>
-                        <li>VIS(Vector Image Solution) / SIS(Simple Image Solution) 엔진 포팅 지원</li>
+                        <li>LG U+ 단말에 내장되는 Android 기본 애플리케이션 개발·유지보수</li>
+                        <li>단말 성능 테스트 애플리케이션 신규 기능 개발 및 유지보수</li>
+                        <li>인력 변경 과정에서 일부 PL 업무 수행</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Education -->
-        <h2 class="section-title">Education</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">국민대학교 대학원</h3>
-                    <span class="timeline-period">2002.03 - 2004.02</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>Java · Android · Mobile Device Software</p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">NSA</h3>
+                            <p class="role">단말 개발팀 · 대리 / Sub PL</p>
+                        </div>
+                        <div class="period">2009.10 ~ 2010.05</div>
+                    </div>
                     <ul>
-                        <li>영상 처리 전공 (이학 석사)</li>
-                        <li>졸업 논문: 조명과 물체의 3차원적 특성에 따른 최적의 초점 측정 방법에 관한 연구</li>
+                        <li>삼성전자 미주향 U460 모델 Settings &amp; Tools 개발</li>
+                        <li>C 기반 모바일 단말 내장 소프트웨어 개발</li>
+                        <li>플랫폼 변경 과정에서 Sub PL 역할 및 오류·인력 관리</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">한성대학교</h3>
-                    <span class="timeline-period">2000.03 - 2002.03</span>
-                </div>
-                <div class="timeline-content">
+                    <p class="tech"><strong>Tech Focus</strong>C · Embedded Mobile Software · Device Porting · Sub PL
+                    </p>
+                </article>
+                <article class="experience">
+                    <div class="experience-head">
+                        <div>
+                            <h3 class="company">리코시스 / 네오엠텔</h3>
+                            <p class="role">게임·엔진 개발팀 · 주임연구원</p>
+                        </div>
+                        <div class="period">2005.10 ~ 2009.09</div>
+                    </div>
                     <ul>
-                        <li>컴퓨터공학 전공 (공학 학사)</li>
+                        <li>WIPI/M3D 기반 3D 게임 개발 및 삼성전자 등 다수 단말 대상 게임 포팅</li>
+                        <li>단말별 하드웨어·플랫폼 특성에 따른 오류 수정과 호환성 대응</li>
+                        <li>VIS(Vector Image Solution) 엔진 성능 개선 및 고객사 UI 개발 지원</li>
+                        <li>SIS(Simple Image Solution) 라이브러리 단말별 포팅 및 Qualcomm 연계 RAL 지원</li>
                     </ul>
-                </div>
+                    <p class="tech"><strong>Tech Focus</strong>C · WIPI · M3D · VIS · SIS · Embedded Device · Porting ·
+                        Graphics Engine</p>
+                </article>
             </div>
+        </section>
 
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3 class="timeline-title">김포 대학</h3>
-                    <span class="timeline-period">1998.03 - 2000.02</span>
-                </div>
-                <div class="timeline-content">
+        <section id="projects" class="section-card">
+            <h2 class="section-title">Personal Projects</h2>
+            <div class="project-list">
+                <article class="project">
+                    <div class="project-head">
+                        <div>
+                            <h3 class="project-name">SeMoPlayer</h3>
+                            <p class="role">기획 · 개발 · Google Play 출시</p>
+                        </div>
+                        <div class="period">2026.02</div>
+                    </div>
+                    <p>Kotlin/Jetpack Compose 기반 Music &amp; Video Player.</p>
                     <ul>
-                        <li>멀티미디어 콘텐츠 제작 전공 (공학 전문 학사)</li>
+                        <li>MediaStore 기반 로컬 음악·동영상 탐색 및 앨범·아티스트·영상 분류</li>
+                        <li>Media3/ExoPlayer 기반 Music/Video Playback과 MediaSessionService 기반 백그라운드 음악 재생</li>
+                        <li>MVVM + Repository, StateFlow/Coroutines 기반 UI·재생 상태 관리</li>
+                        <li>Room 기반 Playlist 관리 및 DataStore 기반 사용자 설정</li>
+                        <li>Android 버전별 Media Permission, Foreground Service, Wake Lock 등 플랫폼 정책 대응</li>
                     </ul>
+                    <div class="project-actions"><a class="link-chip"
+                            href="https://play.google.com/store/apps/details?id=com.semodevlabs.semoplayer"
+                            target="_blank" rel="noopener">Google Play ↗</a></div>
+                    <p class="tech"><strong>Tech Focus</strong>Kotlin · Jetpack Compose · Media3 · ExoPlayer ·
+                        MediaSession · Room · MediaStore · DataStore · StateFlow · Coroutines</p>
+                </article>
+                <article class="project">
+                    <div class="project-head">
+                        <div>
+                            <h3 class="project-name">SeMoBT</h3>
+                            <p class="role">기획 · 개발 · Google Play 출시</p>
+                        </div>
+                        <div class="period">2025.12</div>
+                    </div>
+                    <p>BLE와 Bluetooth Classic 장치를 하나의 Flutter 애플리케이션에서 테스트할 수 있는 범용 Bluetooth Terminal.</p>
+                    <ul>
+                        <li>BLE Nordic UART Service와 Bluetooth Classic SPP 기반 양방향 데이터 통신 구현</li>
+                        <li>서로 다른 BLE/Classic 통신 흐름을 공통 Device Model 및 Unified Controller 구조로 관리</li>
+                        <li>Riverpod 기반 Scan·Connection·Terminal Message 상태관리 및 BLE Scan 중복 제거/RSSI 표시</li>
+                        <li>장치별 연결 이력·별명·즐겨찾기·연결 통계, Shortcut Command 및 통신 로그 Export</li>
+                        <li>ESP32, Arduino, HC-05/06, HM-10/11 등 외부 하드웨어 테스트 환경 지원</li>
+                    </ul>
+                    <div class="project-actions"><a class="link-chip"
+                            href="https://play.google.com/store/apps/details?id=com.semodevlabs.semobt" target="_blank"
+                            rel="noopener">Google Play ↗</a></div>
+                    <p class="tech"><strong>Tech Focus</strong>Flutter · Dart · Riverpod · BLE · Nordic UART Service ·
+                        Bluetooth Classic/SPP · SharedPreferences</p>
+                </article>
+                <article class="project">
+                    <div class="project-head">
+                        <div>
+                            <h3 class="project-name">세상의 모든 운세 - 타로 (Mystic Tarot)</h3>
+                            <p class="role">기획 · 개발 · Google Play 출시</p>
+                        </div>
+                        <div class="period">2025.09</div>
+                    </div>
+                    <p>초기 Flutter 버전을 Android Native 버전으로 재구축한 서비스형 Tarot 애플리케이션.</p>
+                    <ul>
+                        <li>초기 Flutter/Riverpod/Hive/Freezed 기반 구현 후 Kotlin/Jetpack Compose Native 버전으로 재구축</li>
+                        <li>Firebase Authentication, Firestore, FCM 기반 인증·리딩 요청·결과 동기화·Push Notification</li>
+                        <li>Google Play Billing 기반 건당 결제 Flow와 Acknowledge/Consume 처리</li>
+                        <li>결제 후 네트워크 실패에 대비한 Local-first 저장 및 재전송 상태 관리</li>
+                        <li>UPLOAD_PENDING → SYNCED → ANSWERED 형태의 유료 리딩 lifecycle 관리</li>
+                    </ul>
+                    <div class="project-actions"><a class="link-chip"
+                            href="https://play.google.com/store/apps/details?id=com.semodevlabs.mystic_tarot"
+                            target="_blank" rel="noopener">Google Play ↗</a></div>
+                    <p class="tech"><strong>Tech Focus</strong>Kotlin · Jetpack Compose · StateFlow · Firebase Auth ·
+                        Firestore · FCM · Google Play Billing | Initial: Flutter · Riverpod · Hive · Freezed</p>
+                </article>
+                <article class="project">
+                    <div class="project-head">
+                        <div>
+                            <h3 class="project-name">세상의 모든 운세 - 보석 (Mystic Gems)</h3>
+                            <p class="role">기획 · 개발 · Google Play 출시</p>
+                        </div>
+                        <div class="period">2025.08</div>
+                    </div>
+                    <p>Flutter 기반 날짜별 탄생석 카드 수집 및 운세 애플리케이션.</p>
+                    <ul>
+                        <li>Riverpod Generator + Freezed 기반 상태관리와 카드·획득 이력·Draw History 데이터 모델 구현</li>
+                        <li>하루 1회 무료 뽑기 및 Rewarded Ad 기반 추가 뽑기 Flow</li>
+                        <li>Firebase Storage 기반 고해상도 이미지 On-demand Download와 로컬 Cache/진행률 관리</li>
+                        <li>Hive 기반 구조화 데이터와 SharedPreferences 기반 설정 데이터 분리</li>
+                        <li>Firestore 기반 사용자 데이터 Backup/Restore 기능 구현</li>
+                    </ul>
+                    <div class="project-actions"><a class="link-chip"
+                            href="https://play.google.com/store/apps/details?id=com.semodevlabs.mystic_gems"
+                            target="_blank" rel="noopener">Google Play ↗</a></div>
+                    <p class="tech"><strong>Tech Focus</strong>Flutter · Dart · Riverpod · Freezed · Hive ·
+                        SharedPreferences · Firebase Storage · Firestore · Google Mobile Ads</p>
+                </article>
+                <article class="project">
+                    <div class="project-head">
+                        <div>
+                            <h3 class="project-name">세상의 모든 로또 - 세모로 (SeMoLotto)</h3>
+                            <p class="role">기획 · 개발 · Google Play 출시</p>
+                        </div>
+                        <div class="period">2025.06</div>
+                    </div>
+                    <p>역대 로또 데이터를 이용해 통계 기반 번호 생성과 당첨 확인을 지원하는 Flutter 애플리케이션.</p>
+                    <ul>
+                        <li>원격 JSON과 Hive 로컬 데이터의 회차별 증분 동기화 및 Offline fallback</li>
+                        <li>전체·최근 당첨번호 빈도, 미출현 번호, 이월수, 구간·조합 특성 등을 계산하는 통계 로직</li>
+                        <li>역대/최근 통계 특성을 반영한 확률 기반 번호 생성과 복수 조합 다양성 평가</li>
+                        <li>사용자 번호 저장 및 회차별 1~5등·보너스 번호 당첨 판정</li>
+                        <li>공식 데이터 갱신을 위한 HTML Parsing/API 기반 수집 Utility 작성</li>
+                    </ul>
+                    <div class="project-actions"><a class="link-chip"
+                            href="https://play.google.com/store/apps/details?id=com.semodevlabs.lotto" target="_blank"
+                            rel="noopener">Google Play ↗</a></div>
+                    <p class="tech"><strong>Tech Focus</strong>Flutter · Dart · Hive · SharedPreferences · HTTP · JSON ·
+                        HTML Parsing · Statistical Heuristics</p>
+                </article>
+                <article class="project">
+                    <div class="project-head">
+                        <div>
+                            <h3 class="project-name">세상의 모든 단어 (SeMoDan)</h3>
+                            <p class="role">기획 · 개발 · Google Play 출시</p>
+                        </div>
+                        <div class="period">2025.04</div>
+                    </div>
+                    <p>사용자 단어 관리, Excel Import 및 다국어 TTS를 지원하는 Flutter 어학 학습 애플리케이션.</p>
+                    <ul>
+                        <li>GetX Binding 및 Reactive Controller 기반 상태관리·의존성 주입 구조</li>
+                        <li>Hive 기반 Vocabulary 데이터와 GetStorage 기반 사용자 설정 분리</li>
+                        <li>영어·일본어·스페인어 TTS 발음 기능과 단말 TTS 지원 여부 대응</li>
+                        <li>Excel(xlsx/xls) Parse/Validation 및 Hive Batch Import</li>
+                        <li>언어·주제 Filter, 검색·정렬, 뜻 공개 Delay 및 자동 다음 단어 학습 Flow</li>
+                    </ul>
+                    <div class="project-actions"><a class="link-chip"
+                            href="https://play.google.com/store/apps/details?id=dev.semodev.semodan" target="_blank"
+                            rel="noopener">Google Play ↗</a></div>
+                    <p class="tech"><strong>Tech Focus</strong>Flutter · Dart · GetX · Hive · GetStorage · Flutter TTS ·
+                        Excel Parsing · File Picker</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="education" class="section-card">
+            <h2 class="section-title">Education &amp; Research Background</h2>
+            <div class="education-item">
+                <div>
+                    <div class="edu-name">국민대학교 대학원 · 영상처리 전공 · 석사</div>
+                    <div class="edu-detail">학위논문: 조명과 물체의 3차원적 구조에 따른 최적의 초점 측정 방법에 관한 연구</div>
+                    <div class="edu-detail">Image Processing / Computer Vision 연구 배경</div>
                 </div>
+                <div class="period">2002.03 ~ 2004.02</div>
             </div>
-        </div>
-
-        <!-- Projects -->
-        <div class="section-header">
-            <h2 class="section-title">Projects</h2>
-            <a href="https://semodevlabs.github.io/hub/apps/" class="view-all-link" target="_blank">
-                전체 앱 보기 →
-            </a>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-date">2026.02</div>
-                <h3 class="project-title">세모플레이어 (SeMoPlayer)</h3>
-                <a href="https://play.google.com/store/apps/details?id=com.semodevlabs.semoplayer" class="project-link" target="_blank">Google Play →</a>
-                <p class="project-description">
-                    Android 네이티브 음악 플레이어. 광고 없는 순수한 음악 감상 경험을 제공하는 무료 앱.
-                </p>
-                <ul class="project-features">
-                    <li>4개 탭 기반 체계적 음악 관리 (곡/앨범/아티스트/재생목록)</li>
-                    <li>Media3(ExoPlayer) 기반 고품질 재생 및 백그라운드 지원</li>
-                    <li>Jetpack Compose를 활용한 모던 UI 구현</li>
-                    <li>MVVM + Clean Architecture 설계</li>
-                    <li>Kotlin Coroutines + Flow 기반 비동기 처리</li>
-                </ul>
+            <div class="education-item">
+                <div class="edu-name">한성대학교 · 컴퓨터공학 · 학사</div>
+                <div class="period">2000.03 ~ 2002.02</div>
             </div>
-
-            <div class="project-card">
-                <div class="project-date">2025.12</div>
-                <h3 class="project-title">세상의 모든 블루투스 (SeMoBT)</h3>
-                <a href="https://play.google.com/store/apps/details?id=com.semodevlabs.semobt" class="project-link" target="_blank">Google Play →</a>
-                <p class="project-description">
-                    BLE & BT Classic 통합 블루투스 터미널 앱. IoT 개발자와 하드웨어 엔지니어를 위한 실용적인 개발 도구.
-                </p>
-                <ul class="project-features">
-                    <li>이중 프로토콜 지원: BLE(Nordic UART)와 BT Classic(SPP) 통합</li>
-                    <li>실시간 터미널: 양방향 데이터 송수신 및 타임스탬프 기록</li>
-                    <li>스마트 디바이스 관리: 연결 이력, 즐겨찾기, 통계 제공</li>
-                    <li>단축 명령어 시스템: 6개 커스터마이징 가능한 버튼</li>
-                    <li>Riverpod 상태 관리 및 Provider 패턴 기반 아키텍처</li>
-                </ul>
+            <div class="education-item">
+                <div class="edu-name">김포대학교 · 멀티미디어 · 전문학사</div>
+                <div class="period">1998.03 ~ 2000.02</div>
             </div>
+        </section>
 
-            <div class="project-card">
-                <div class="project-date">2025.09</div>
-                <h3 class="project-title">세상의 모든 운세 - 타로</h3>
-                <a href="https://play.google.com/store/apps/details?id=com.semodevlabs.mystic_tarot" class="project-link" target="_blank">Google Play →</a>
-                <p class="project-description">
-                    Flutter 기반 타로 카드 운세 앱. 일일운세와 다양한 스프레드를 통한 상세운세 제공.
-                </p>
-                <ul class="project-features">
-                    <li>메이저 아르카나 22장 + 마이너 아르카나 56장 (총 78장)</li>
-                    <li>3카드 스프레드: 과거/현재/미래 리딩</li>
-                    <li>Love Cross: 연애운 전문 스프레드</li>
-                    <li>스미스 웨이트 타로 이미지 내장으로 오프라인 완전 지원</li>
-                </ul>
-            </div>
-
-            <div class="project-card">
-                <div class="project-date">2025.08</div>
-                <h3 class="project-title">세상의 모든 운세 - 보석</h3>
-                <a href="https://play.google.com/store/apps/details?id=com.semodevlabs.mystic_gems" class="project-link" target="_blank">Google Play →</a>
-                <p class="project-description">
-                    365일 일일 탄생석 기반 운세 앱. 탄생석 카드 수집과 운세 확인이 가능한 라이프스타일 앱.
-                </p>
-                <ul class="project-features">
-                    <li>365일 탄생석 시스템: 사랑, 직장, 금전, 건강 운세 제공</li>
-                    <li>카드 수집 시스템: 도감 및 캘린더 형태로 확인</li>
-                    <li>일일 무료 뽑기 + 광고 시청을 통한 추가 뽑기</li>
-                    <li>Firebase Storage 연동으로 최적화된 이미지 관리</li>
-                </ul>
-            </div>
-
-            <div class="project-card">
-                <div class="project-date">2025.06</div>
-                <h3 class="project-title">세상의 모든 로또 (세모로)</h3>
-                <a href="https://play.google.com/store/apps/details?id=com.semodevlabs.lotto" class="project-link" target="_blank">Google Play →</a>
-                <p class="project-description">
-                    로또 당첨 번호 통계 기반 번호 생성 앱. 과거 데이터 분석을 통한 확률적 번호 생성.
-                </p>
-                <ul class="project-features">
-                    <li>전체 회차 당첨 번호 데이터 분석 및 가중치 계산</li>
-                    <li>단순 랜덤, 가중치 랜덤, 지난주 연계 3가지 알고리즘</li>
-                    <li>Web Scraping을 통한 실시간 데이터 수집</li>
-                    <li>Hive DB 로컬 데이터 관리, AdMob 수익화</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Skills -->
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Languages & Frameworks</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Flutter</span>
-                    <span class="skill-tag">Dart</span>
-                    <span class="skill-tag">Kotlin</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Swift</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Next.js</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Mobile Development</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Android</span>
-                    <span class="skill-tag">iOS</span>
-                    <span class="skill-tag">Cross-Platform</span>
-                    <span class="skill-tag">Jetpack Compose</span>
-                    <span class="skill-tag">Riverpod</span>
-                    <span class="skill-tag">Provider</span>
-                    <span class="skill-tag">Clean Architecture</span>
-                    <span class="skill-tag">MVVM</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Backend & Cloud</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">AWS Lambda</span>
-                    <span class="skill-tag">RESTful API</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Hive</span>
-                    <span class="skill-tag">Room DB</span>
-                    <span class="skill-tag">ElasticSearch</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Tools & Others</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">GitHub</span>
-                    <span class="skill-tag">Media3 (ExoPlayer)</span>
-                    <span class="skill-tag">AdMob</span>
-                    <span class="skill-tag">Play Console</span>
-                    <span class="skill-tag">Bluetooth (BLE/Classic)</span>
-                    <span class="skill-tag">IoT</span>
-                    <span class="skill-tag">ROS</span>
-                    <span class="skill-tag">Notion</span>
-                    <span class="skill-tag">Jira</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Licenses & Certifications -->
-        <h2 class="section-title">Licenses & Certifications</h2>
-        <div class="cert-grid">
+        <section id="certifications" class="section-card">
+            <h2 class="section-title">Selected Certifications</h2>
             <div class="cert-item">
-                <div class="cert-title">1종 보통운전면허</div>
-                <div class="cert-org">경찰청</div>
-                <div class="cert-date">2002.04</div>
+                <div class="cert-name">초경량비행장치 지도조종자 · 한국교통안전공단</div>
+                <div class="period">2024.04</div>
             </div>
-
             <div class="cert-item">
-                <div class="cert-title">초경량비행장치 조종자</div>
-                <div class="cert-org">교통안전공단</div>
-                <div class="cert-date">2019.04</div>
+                <div class="cert-name">초경량비행장치 조종자 · 한국교통안전공단</div>
+                <div class="period">2019.06</div>
             </div>
-
             <div class="cert-item">
-                <div class="cert-title">초경량비행장치 지도조종자</div>
-                <div class="cert-org">교통안전공단</div>
-                <div class="cert-date">2024.04</div>
+                <div class="cert-name">1종 보통 운전면허</div>
+                <div class="period">2002.04</div>
             </div>
+        </section>
 
-            <div class="cert-item">
-                <div class="cert-title">타로마스터 1급</div>
-                <div class="cert-org">한국엔씨에스자격개발원</div>
-                <div class="cert-date">2025.08</div>
-            </div>
+        <section id="direction" class="section-card">
+            <h2 class="section-title">Career Direction</h2>
+            <div class="future-focus"><strong>Current Expertise</strong><span>Device &amp; Sensor Integration ·
+                    Cross-platform / Android Native · IoT &amp; Edge Applications · Data Pipeline Integration · PL /
+                    BrSE</span></div>
+            <div class="future-focus"><strong>Career Focus</strong><span>Physical AI · Robotics · Smart Factory ·
+                    Intelligent Edge / Device Software</span></div>
+        </section>
 
-            <div class="cert-item">
-                <div class="cert-title">타로상담전문가 1급</div>
-                <div class="cert-org">한국엔씨에스자격개발원</div>
-                <div class="cert-date">2025.08</div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>© <span id="year"></span> semodevlabs. All rights reserved.</p>
-        </footer>
-    </div>
-    
-    <script>
-        // Auto-update year
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+        <footer>Last updated: 2026.10 · SeMoLabs</footer>
+    </main>
 </body>
+
 </html>
